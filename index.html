@@ -5,6 +5,51 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Streaming platform</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat&family=Rubik+Moonrocks&display=swap"
+      rel="stylesheet"
+    />
+    <script defer src="main.js"></script>
+    <script
+      src="https://kit.fontawesome.com/f1d50ed54d.js"
+      crossorigin="anonymous"
+    ></script>
   </head>
-  <body></body>
+  <body>
+    <header>
+      <div class="icons-div">
+        <div class="icon-container">
+          <i class="fa-solid fa-house active-color"></i>
+        </div>
+        <div class="icon-container"><i class="fa-solid fa-star"></i></div>
+      </div>
+
+      <div class="search-div">
+        <input type="text" placeholder="Search" id="search-bar" />
+
+        <i class="fa-solid fa-magnifying-glass"></i>
+      </div>
+
+      <div id="title-div">
+        <p>MOVIES</p>
+      </div>
+    </header>
+
+    <div id="categories">
+      <div><p class="category">Action</p></div>
+      <div><p class="category">Comedy</p></div>
+      <div><p class="category">Horror</p></div>
+      <div><p class="category">Sci-Fi</p></div>
+      <div><p class="category">Romance</p></div>
+      <div><p class="category">Documentary</p></div>
+    </div>
+
+    <div id="home-container">
+      <div class="home-movie">
+      </div>
+    </div>
+  </body>
 </html>
