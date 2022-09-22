@@ -1,25 +1,26 @@
-const houseIcon = document.querySelector(".fa-house");
-const starIcon = document.querySelector(".fa-star");
-const categories = document.querySelector("#categories");
-const category = document.querySelectorAll(".category");
+const categories = document.querySelectorAll(".categories");
+const category = document.querySelectorAll(".category, .fa-house, .fa-star");
+const movie = document.querySelectorAll(".home-movie");
 
-starIcon.addEventListener("click", function (e) {
-  if (houseIcon.classList.contains("active-color")) {
-    starIcon.classList.add("active-color");
-    houseIcon.classList.remove("active-color");
-  }
-});
+categories.forEach((c) =>
+  c.addEventListener("click", function (e) {
+    const active = e.target;
+    if (!active) return;
+    category.forEach((name) => name.classList.remove("active-color"));
+    active.classList.add("active-color");
+  })
+);
 
-houseIcon.addEventListener("click", function (e) {
-  if (starIcon.classList.contains("active-color")) {
-    houseIcon.classList.add("active-color");
-    starIcon.classList.remove("active-color");
-  }
-});
+document
+  .querySelector(".home-movie")
+  .addEventListener("mouseenter", function (e) {
+    document.querySelector(".movie-title").style.visibility = "hidden";
+    document.querySelector(".movie-short-info").style.visibility = "visible";
+  });
 
-categories.addEventListener("click", function (e) {
-  const active = e.target;
-  if (!active) return;
-  category.forEach((c) => c.classList.remove("active-color"));
-  active.classList.add("active-color");
-});
+document
+  .querySelector(".home-movie")
+  .addEventListener("mouseleave", function (e) {
+    document.querySelector(".movie-short-info").style.visibility = "hidden";
+    document.querySelector(".movie-title").style.visibility = "visible";
+  });
