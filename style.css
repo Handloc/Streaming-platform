@@ -163,27 +163,18 @@ input:focus {
 }
 
 .movie-title {
-  font-size: 23px;
+  font-size: 18px;
   margin-top: 13px;
 }
 
-.movie-short-info {
-  visibility: hidden;
-  margin-top: -60px;
-}
-
-.movie-short-info-title {
-  font-weight: bold;
-  font-size: 18px;
-}
-
-.movie-short-info-details p,
-.movie-short-info-title {
-  margin: 5px 10px 0 0;
-}
-
-.movie-short-info-details {
+.movie-description {
   display: flex;
+  justify-content: center;
   align-items: center;
-  justify-content: space-around;
+  width: 60vw;
+  height: 30vw;
+  background-color: red;
+  z-index: 1;
+  position: absolute;
+  visibility: hidden;
 }

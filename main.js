@@ -10,17 +10,3 @@ categories.forEach((c) =>
     active.classList.add("active-color");
   })
 );
-
-document
-  .querySelector(".home-movie")
-  .addEventListener("mouseenter", function (e) {
-    document.querySelector(".movie-title").style.visibility = "hidden";
-    document.querySelector(".movie-short-info").style.visibility = "visible";
-  });
-
-document
-  .querySelector(".home-movie")
-  .addEventListener("mouseleave", function (e) {
-    document.querySelector(".movie-short-info").style.visibility = "hidden";
-    document.querySelector(".movie-title").style.visibility = "visible";
-  });
