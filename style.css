@@ -29,17 +29,21 @@ input:focus {
   cursor: pointer;
 }
 
-.fa-magnifying-glass {
+.search-icon {
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 30px;
-  transition: color 0.25s, font-size 0.25s;
-  background-color: rgb(65, 65, 65);
   height: 40px;
   width: 50px;
   border-top-right-radius: 10px;
   border-bottom-right-radius: 10px;
+  background-color: rgb(65, 65, 65);
+}
+
+.fa-magnifying-glass {
+  font-size: 30px;
+  transition: color 0.25s;
+  background-color: rgb(65, 65, 65);
 }
 
 .fa-magnifying-glass:hover {
@@ -137,28 +141,50 @@ input:focus {
   color: white;
 }
 
-#home-container {
+.home-container,
+.action-container,
+.comedy-container,
+.horror-container,
+.sci-fi-container,
+.romance-container,
+.documentary-container {
   margin: 50px 0;
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 30px;
+  grid-template-columns: repeat(3, 426.4px);
   grid-auto-rows: minmax(100px, auto);
+  column-gap: 50px;
+  row-gap: 50px;
+  justify-content: center;
+  display: none;
 }
 
-.home-movie {
+.home-movie,
+.action-movie,
+.comedy-movie,
+.horror-movie,
+.sci-fi-movie,
+.romance-movie,
+.documentary-movie {
+  width: 426.4px;
   height: 300px;
   transition: background-color 0.3s, scale 0.3s;
   text-align: center;
   border-bottom: 1px solid orangered;
 }
 
-.home-movie:hover {
+.home-movie:hover,
+.action-movie:hover,
+.comedy-movie:hover,
+.horror-movie:hover,
+.sci-fi-movie:hover,
+.romance-movie:hover,
+.documentary-movie:hover {
   cursor: pointer;
   background-color: orangered;
   scale: 1.1;
 }
 
-.home-image {
+.movie-image {
   width: 426.4px;
 }
 
@@ -167,14 +193,6 @@ input:focus {
   margin-top: 13px;
 }
 
-.movie-description {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 60vw;
-  height: 30vw;
-  background-color: red;
-  z-index: 1;
-  position: absolute;
-  visibility: hidden;
+.active {
+  display: grid;
 }
