@@ -205,23 +205,4 @@ input:focus {
   .movie-container {
     grid-template-columns: repeat(1, 550px);
   }
-
-  /* .home-movie,
-  .action-movie,
-  .comedy-movie,
-  .horror-movie,
-  .sci-fi-movie,
-  .romance-movie,
-  .documentary-movie {
-    justify-content: center;
-  } */
-  /* 
-  .movie-image {
-    width: 800px;
-  }
-
-  .movie-title {
-    font-size: 30px;
-    margin-top: 15px;
-  } */
 }

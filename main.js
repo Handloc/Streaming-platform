@@ -10,27 +10,6 @@ const typesMovie = document.querySelectorAll(
   ".home-movie, .action-movie, .comedy-movie, .horror-movie, .sci-fi-movie, .romance-movie, .documentary-movie"
 );
 
-// const activeCategory = function () {
-//   categories.forEach((cat) =>
-//     cat.addEventListener("click", function (e) {
-//       const active = e.target;
-//       if (!active) return;
-//       category.forEach((name) => name.classList.remove("active-color"));
-//       movieContainers.forEach((container) =>
-//         container.classList.remove("active")
-//       );
-//       active.classList.add("active-color");
-//       if (active.classList.contains("fa-house")) {
-//         document.querySelector(".home-container").classList.add("active");
-//       } else {
-//         document
-//           .querySelector(`.${active.textContent.toLowerCase()}-container`)
-//           .classList.add("active");
-//       }
-//     })
-//   );
-// };
-
 const searching = function () {
   searchBar.addEventListener("input", function (e) {
     let searchValue = e.target.value.toLowerCase();
@@ -81,12 +60,5 @@ const homePage = function () {
   titles.forEach((title) => title.parentElement.classList.remove("inactive"));
 };
 
-const addToFavourites = function () {
-  titles.forEach(function (e) {
-    console.log(e.parentElement);
-  });
-};
-
 activeCategory();
 searching();
-addToFavourites();
