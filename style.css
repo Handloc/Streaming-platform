@@ -29,28 +29,6 @@ input:focus {
   cursor: pointer;
 }
 
-.search-icon {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 40px;
-  width: 50px;
-  border-top-right-radius: 10px;
-  border-bottom-right-radius: 10px;
-  background-color: rgb(65, 65, 65);
-}
-
-.fa-magnifying-glass {
-  font-size: 30px;
-  transition: color 0.25s;
-  background-color: rgb(65, 65, 65);
-}
-
-.fa-magnifying-glass:hover {
-  color: orangered;
-  cursor: pointer;
-}
-
 .active-color {
   color: orangered;
 }
@@ -97,6 +75,7 @@ input:focus {
   align-items: center;
   justify-content: center;
   flex: 1;
+  margin-right: 100px;
 }
 
 #title-div {
@@ -124,30 +103,19 @@ input:focus {
   font-size: 27px;
 }
 
-.search-div {
-  margin-right: 100px;
-}
-
-#search-bar {
+.search-bar {
   flex: 1;
   min-width: 250px;
   height: 40px;
   padding: 0 25px;
-  border-top-left-radius: 10px;
-  border-bottom-left-radius: 10px;
+  border-radius: 10px;
   border: none;
   font-size: 25px;
   background-color: rgb(65, 65, 65);
   color: white;
 }
 
-.home-container,
-.action-container,
-.comedy-container,
-.horror-container,
-.sci-fi-container,
-.romance-container,
-.documentary-container {
+.movie-container {
   margin: 50px 0;
   display: grid;
   grid-template-columns: repeat(3, 426.4px);
@@ -195,4 +163,65 @@ input:focus {
 
 .active {
   display: grid;
+}
+
+.inactive {
+  display: none;
+}
+
+.active-search-bar {
+  border: 2px solid orangered;
+  box-shadow: 0 0 10px orangered;
+}
+
+@media (max-width: 1400px) {
+  .movie-container {
+    grid-template-columns: repeat(2, 550px);
+  }
+
+  .home-movie,
+  .action-movie,
+  .comedy-movie,
+  .horror-movie,
+  .sci-fi-movie,
+  .romance-movie,
+  .documentary-movie {
+    width: 550px;
+    height: 400px;
+    justify-content: space-around;
+  }
+
+  .movie-image {
+    width: 550px;
+  }
+
+  .movie-title {
+    font-size: 25px;
+    margin-top: 25px;
+  }
+}
+
+@media (max-width: 1180px) {
+  .movie-container {
+    grid-template-columns: repeat(1, 550px);
+  }
+
+  /* .home-movie,
+  .action-movie,
+  .comedy-movie,
+  .horror-movie,
+  .sci-fi-movie,
+  .romance-movie,
+  .documentary-movie {
+    justify-content: center;
+  } */
+  /* 
+  .movie-image {
+    width: 800px;
+  }
+
+  .movie-title {
+    font-size: 30px;
+    margin-top: 15px;
+  } */
 }
