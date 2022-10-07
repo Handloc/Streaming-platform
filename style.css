@@ -9,6 +9,7 @@ body {
   -webkit-user-select: none;
   margin: 0 90px;
   overflow-y: scroll;
+  position: relative;
 }
 
 header {
@@ -20,6 +21,11 @@ header {
 textarea:focus,
 input:focus {
   outline: none;
+}
+
+.modal-favourite fa-star:hover {
+  font-size: 501px;
+  color: orangered;
 }
 
 .fa-house:hover,
@@ -38,6 +44,12 @@ input:focus {
   font-size: 30px;
   margin-right: 55px;
   transition: color 0.25s, font-size 0.25s;
+}
+
+.modal-favourite fa-star {
+  font-size: 50px;
+  margin: 0;
+  padding: 0;
 }
 
 .icons-div {
@@ -165,10 +177,6 @@ input:focus {
   display: grid;
 }
 
-.inactive {
-  display: none;
-}
-
 .active-search-bar {
   border: 2px solid orangered;
   box-shadow: 0 0 10px orangered;
@@ -205,4 +213,54 @@ input:focus {
   .movie-container {
     grid-template-columns: repeat(1, 550px);
   }
+}
+
+.modals {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal {
+  background-color: rgb(61, 61, 61);
+  position: fixed;
+  display: grid;
+  align-items: center;
+  justify-content: center;
+  padding: 50px;
+  width: 650px;
+  height: 550px;
+  margin-top: 450px;
+  border-radius: 20px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.7);
+  text-align: center;
+  z-index: 3;
+}
+
+.close-modal-button {
+  position: absolute;
+  top: -10px;
+  right: 10px;
+  font-size: 60px;
+}
+
+.close-modal-button:hover {
+  cursor: pointer;
+  color: orangered;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: calc(100% + 180px);
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(3.5px);
+  margin: 0 -90px;
+  z-index: 2;
+}
+
+.inactive {
+  display: none;
 }

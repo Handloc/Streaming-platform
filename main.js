@@ -10,6 +10,10 @@ const typesMovie = document.querySelectorAll(
   ".home-movie, .action-movie, .comedy-movie, .horror-movie, .sci-fi-movie, .romance-movie, .documentary-movie"
 );
 
+const overlay = document.querySelector(".overlay");
+const modals = document.querySelectorAll(".modal");
+const closeButton = document.querySelectorAll(".close-modal-button");
+
 const searching = function () {
   searchBar.addEventListener("input", function (e) {
     let searchValue = e.target.value.toLowerCase();
@@ -60,5 +64,30 @@ const homePage = function () {
   titles.forEach((title) => title.parentElement.classList.remove("inactive"));
 };
 
+const showModal = function () {
+  titles.forEach(function (title) {
+    title.parentElement.addEventListener("click", function () {
+      document
+        .querySelector(`.${title.textContent.toLowerCase()}-modal`)
+        .classList.remove("inactive");
+      overlay.classList.remove("inactive");
+    });
+  });
+};
+
+const closeModal = function () {
+  overlay.addEventListener("click", function () {
+    overlay.classList.add("inactive");
+    modals.forEach((modal) => modal.classList.add("inactive"));
+  });
+};
+
+const closeModalButton = function () {
+  closeButton.forEach((button) => closeModal);
+};
+
 activeCategory();
 searching();
+showModal();
+closeModal();
+closeModalButton();
