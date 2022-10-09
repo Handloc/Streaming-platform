@@ -1,6 +1,5 @@
 const categories = document.querySelectorAll(".categories");
 const category = document.querySelectorAll(".category, .fa-house, .fa-star");
-const movie = document.querySelector(".home-movie");
 const movieContainers = document.querySelectorAll(
   ".home-container, .action-container, .comedy-container, .horror-container, .sci-fi-container, .romance-container, .documentary-container"
 );
@@ -9,10 +8,10 @@ const titles = document.querySelectorAll(".movie-title");
 const typesMovie = document.querySelectorAll(
   ".home-movie, .action-movie, .comedy-movie, .horror-movie, .sci-fi-movie, .romance-movie, .documentary-movie"
 );
-
 const overlay = document.querySelector(".overlay");
 const modals = document.querySelectorAll(".modal");
 const closeButton = document.querySelectorAll(".close-modal-button");
+const favouriteMovie = document.querySelectorAll(".modal-favourite");
 
 const searching = function () {
   searchBar.addEventListener("input", function (e) {
@@ -45,6 +44,11 @@ const activeCategory = function () {
         titles.forEach((title) =>
           title.parentElement.classList.remove("inactive")
         );
+      } else if (active.classList.contains("favourite-movies")) {
+        titles.forEach(function (title) {
+          if (title.parentElement.classList.contains("favourite-movie"))
+            title.parentElement.classList.remove("inactive");
+        });
       } else {
         titles.forEach(function (title) {
           if (
@@ -68,7 +72,13 @@ const showModal = function () {
   titles.forEach(function (title) {
     title.parentElement.addEventListener("click", function () {
       document
-        .querySelector(`.${title.textContent.toLowerCase()}-modal`)
+        .querySelector(
+          `.${title.textContent
+            .toLowerCase()
+            .replaceAll(" ", "-")
+            .replaceAll(":", "")
+            .replaceAll(",", "")}-modal`
+        )
         .classList.remove("inactive");
       overlay.classList.remove("inactive");
     });
@@ -83,7 +93,28 @@ const closeModal = function () {
 };
 
 const closeModalButton = function () {
-  closeButton.forEach((button) => closeModal);
+  closeButton.forEach(function (button) {
+    button.addEventListener("click", function () {
+      overlay.classList.add("inactive");
+      modals.forEach((modal) => modal.classList.add("inactive"));
+    });
+  });
+};
+
+const addToFavourites = function () {
+  favouriteMovie.forEach(function (favButton) {
+    favButton.addEventListener("click", function () {
+      favButton.classList.toggle("favourite");
+      titles.forEach(function (title) {
+        if (
+          title.textContent ==
+          favButton.nextElementSibling.nextElementSibling.textContent
+        ) {
+          title.parentElement.classList.toggle("favourite-movie");
+        }
+      });
+    });
+  });
 };
 
 activeCategory();
@@ -91,3 +122,4 @@ searching();
 showModal();
 closeModal();
 closeModalButton();
+addToFavourites();

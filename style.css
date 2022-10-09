@@ -23,8 +23,7 @@ input:focus {
   outline: none;
 }
 
-.modal-favourite fa-star:hover {
-  font-size: 501px;
+.modal-favourite .fa-star:hover {
   color: orangered;
 }
 
@@ -46,8 +45,11 @@ input:focus {
   transition: color 0.25s, font-size 0.25s;
 }
 
-.modal-favourite fa-star {
-  font-size: 50px;
+.modal-favourite .fa-star {
+  position: absolute;
+  top: 13px;
+  right: 60px;
+  font-size: 25px;
   margin: 0;
   padding: 0;
 }
@@ -66,6 +68,18 @@ input:focus {
   justify-content: space-between;
   align-items: center;
   border-bottom: 1px solid orangered;
+}
+
+.category {
+  transition: color 0.3s, font-size 0.3s;
+  width: 200px;
+  text-align: center;
+}
+
+.category:hover {
+  color: orangered;
+  cursor: pointer;
+  font-size: 27px;
 }
 
 .icon-container {
@@ -101,18 +115,6 @@ input:focus {
   font-size: 70px;
   font-family: Rubik Moonrocks;
   color: orangered;
-}
-
-.category {
-  transition: color 0.3s, font-size 0.3s;
-  width: 200px;
-  text-align: center;
-}
-
-.category:hover {
-  color: orangered;
-  cursor: pointer;
-  font-size: 27px;
 }
 
 .search-bar {
@@ -179,7 +181,82 @@ input:focus {
 
 .active-search-bar {
   border: 2px solid orangered;
-  box-shadow: 0 0 10px orangered;
+}
+
+.modal {
+  background-color: rgb(61, 61, 61);
+  position: fixed;
+  display: grid;
+  padding: 50px;
+  width: 650px;
+  height: 570px;
+  top: 15%;
+  left: 50%;
+  transform: translate(-50%, 0);
+  border-radius: 20px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.7);
+  text-align: center;
+  z-index: 3;
+}
+
+.close-modal-button {
+  position: absolute;
+  top: -10px;
+  right: 10px;
+  font-size: 60px;
+  transition: color 0.15s;
+}
+
+.close-modal-button:hover {
+  cursor: pointer;
+  color: orangered;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: calc(100% + 180px);
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(3.5px);
+  margin: 0 -90px;
+  z-index: 2;
+}
+
+.inactive {
+  display: none;
+}
+
+.modal-title {
+  margin-top: -10px;
+  margin-bottom: 10px;
+  font-weight: bold;
+  font-size: 40px;
+}
+
+.modal-bold-info {
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.modal-description {
+  padding: 0 80px;
+  font-style: italic;
+}
+
+.modal-characters {
+  padding: 20px 100px;
+}
+
+.modal-info,
+.modal-director,
+.modal-writers {
+  padding-bottom: 15px;
+}
+
+.favourite {
+  color: orangered;
 }
 
 @media (max-width: 1400px) {
@@ -215,52 +292,119 @@ input:focus {
   }
 }
 
-.modals {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
+@media (max-width: 430px) {
+  header {
+    margin-top: 100px;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
 
-.modal {
-  background-color: rgb(61, 61, 61);
-  position: fixed;
-  display: grid;
-  align-items: center;
-  justify-content: center;
-  padding: 50px;
-  width: 650px;
-  height: 550px;
-  margin-top: 450px;
-  border-radius: 20px;
-  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.7);
-  text-align: center;
-  z-index: 3;
-}
+  #title-div {
+    margin-top: -300%;
+    height: auto;
+  }
 
-.close-modal-button {
-  position: absolute;
-  top: -10px;
-  right: 10px;
-  font-size: 60px;
-}
+  .movie-container {
+    margin-top: 120%;
+  }
+  .icons-div {
+    /* width: 100%; */
+    justify-content: center;
+    align-items: center;
+    margin-top: 15px;
+    margin-left: 50px;
+  }
 
-.close-modal-button:hover {
-  cursor: pointer;
-  color: orangered;
-}
+  .icon-container {
+    margin-left: 50px;
+    align-items: center;
+    justify-content: center;
+    z-index: 2;
+  }
 
-.overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: calc(100% + 180px);
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
-  backdrop-filter: blur(3.5px);
-  margin: 0 -90px;
-  z-index: 2;
-}
+  .fa-solid {
+    margin-bottom: 15px;
+  }
 
-.inactive {
-  display: none;
+  .search-bar {
+    align-items: center;
+    justify-content: center;
+    margin-top: 50px;
+    min-width: 10px;
+  }
+
+  .categories i {
+    margin-top: 50px;
+  }
+
+  .categories {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    align-items: center;
+    justify-content: center;
+    padding-right: 20px;
+    margin-top: -50px;
+    border-bottom: none;
+  }
+
+  .category {
+    height: 10px;
+  }
+
+  .category:hover {
+    font-size: 23px;
+  }
+  .home-movie,
+  .action-movie,
+  .comedy-movie,
+  .horror-movie,
+  .sci-fi-movie,
+  .romance-movie,
+  .documentary-movie {
+    width: 300px;
+    height: 200px;
+    justify-content: space-around;
+    margin-left: 23%;
+  }
+
+  .movie-image {
+    width: 300px;
+  }
+
+  .movie-title {
+    font-size: 20px;
+    margin-top: 0;
+  }
+  .search-div {
+    margin-right: 0;
+  }
+
+  .modal {
+    width: 350px;
+    height: 600px;
+    padding: 50px 10px;
+  }
+  .overlay {
+    height: calc(300% + 180px);
+  }
+
+  .modal-bold-info,
+  .modal-characters,
+  .modal-description,
+  .modal-title,
+  .modal-info {
+    width: 300px;
+    padding-left: 25px;
+    margin-bottom: 5px;
+  }
+
+  iframe {
+    width: 300px;
+    height: 203px;
+  }
+
+  .modal-trailer {
+    margin-left: -70px;
+  }
 }
